@@ -35,7 +35,13 @@ export default function LoginScreen({ navigation }) {
             uri:
               "https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png",
           }}
-          style={{ width: 200, height: 200, marginBottom: 20 }}
+          style={{
+            width: 150,
+            height: 150,
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: 20,
+          }}
         />
         <View style={styles.inputContainer}>
           <Input
@@ -55,7 +61,12 @@ export default function LoginScreen({ navigation }) {
           />
         </View>
 
-        <Button containerStyle={styles.button} onPress={signIn} title="Login" />
+        <Button
+          containerStyle={styles.button}
+          onPress={signIn}
+          title="Login"
+          disabled={!email || !password}
+        />
         <Button
           containerStyle={styles.button}
           onPress={() => navigation.navigate("Register")}
@@ -83,5 +94,7 @@ const styles = StyleSheet.create({
   button: {
     width: 300,
     marginTop: 10,
+    outline: "none",
+    border: "none",
   },
 });

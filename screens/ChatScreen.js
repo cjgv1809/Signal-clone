@@ -21,7 +21,7 @@ import firebase from "firebase";
 const ChatScreen = ({ navigation, route }) => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
-  
+
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "Chat",
@@ -69,7 +69,6 @@ const ChatScreen = ({ navigation, route }) => {
         </View>
       ),
     });
-    scrollToBottom();
   }, [navigation, messages]);
 
   const sendMessage = () => {
@@ -118,7 +117,6 @@ const ChatScreen = ({ navigation, route }) => {
           <>
             <ScrollView
               contentContainerStyle={{ paddingTop: 15, overflow: "hidden" }}
-             
             >
               {messages.map(({ id, data }) =>
                 data.email === auth.currentUser.email ? (

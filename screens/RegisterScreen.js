@@ -18,7 +18,7 @@ const RegisterScreen = ({ navigation }) => {
   // Similar to useEffect
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerBackTitle: "Login",
+      title: "Back to Login",
     });
   }, [navigation]);
 
@@ -40,8 +40,8 @@ const RegisterScreen = ({ navigation }) => {
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <StatusBar style="light" />
       <ScrollView>
-        <Text h3 style={{ marginBottom: 50 }}>
-          Create a Signal account
+        <Text h3 style={{ marginBottom: 50, textAlign: "center" }}>
+          Create a Signal Account
         </Text>
 
         <View style={styles.inputContainer}>
@@ -101,6 +101,8 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 300,
-    marginTop: 10,
+    marginTop: 20,
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 });
