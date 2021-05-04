@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, View, Platform, ScrollView } from "react-native";
 import { Button, Input, Image } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
 import { KeyboardAvoidingView } from "react-native";
@@ -27,9 +27,12 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <StatusBar style="light" />
-      <ScrollView>
+    <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.container}
+      >
+        <StatusBar style="light" />
         <Image
           source={{
             uri:
@@ -73,9 +76,9 @@ export default function LoginScreen({ navigation }) {
           type="outline"
           title="Register"
         />
-        <View style={{ height: 100 }} />
-      </ScrollView>
-    </KeyboardAvoidingView>
+        {/* <View style={{ height: 100 }} />  */}
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
 

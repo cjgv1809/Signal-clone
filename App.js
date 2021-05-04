@@ -25,11 +25,31 @@ export default function App() {
         initialRouteName="Login"
         screenOptions={globalScreenOptions}
       >
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="AddChat" component={AddChatScreen} />
-        <Stack.Screen name="Chat" component={ChatScreen} />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ gestureEnabled: true }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={RegisterScreen}
+          options={{ gestureEnabled: true }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ gestureEnabled: true }}
+        />
+        <Stack.Screen
+          name="AddChat"
+          component={AddChatScreen}
+          options={{ gestureEnabled: true }}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={ChatScreen}
+          options={{ gestureEnabled: true }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

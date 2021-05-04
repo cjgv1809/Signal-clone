@@ -3,6 +3,7 @@ import {
   KeyboardAvoidingView,
   StyleSheet,
   View,
+  Platform,
   ScrollView,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
@@ -18,7 +19,7 @@ const RegisterScreen = ({ navigation }) => {
   // Similar to useEffect
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: "Back to Login",
+      headerBackTitle: "Back to Login",
     });
   }, [navigation]);
 
@@ -37,9 +38,12 @@ const RegisterScreen = ({ navigation }) => {
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <StatusBar style="light" />
-      <ScrollView>
+    <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.container}
+      >
+        <StatusBar style="light" />
         <Text h3 style={{ marginBottom: 50, textAlign: "center" }}>
           Create a Signal Account
         </Text>
@@ -78,11 +82,12 @@ const RegisterScreen = ({ navigation }) => {
           containerStyle={styles.button}
           raised
           onPress={register}
+          disabled={!name || !email || !password}
           title="Register"
         />
-        <View style={{ height: 100 }} />
-      </ScrollView>
-    </KeyboardAvoidingView>
+        {/* <View style={{ height: 100 }} /> */}
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
